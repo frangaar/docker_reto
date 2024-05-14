@@ -21,7 +21,7 @@ services:
       context: ./vue
       dockerfile: Dockerfile
     ports:
-      - "8085:80"
+      - "8081:80"
 
   landing:
     build:
