@@ -60,10 +60,10 @@ services:
       context: ./php
       dockerfile: Dockerfile
     volumes:
-      - ./src:/var/www
+      - ./src:/var/www/html
     ports:
       - "9000:9000"
-    working_dir: /var/www
+    working_dir: /var/www/html
 
   #phpMyAdmin Service
   # phpmyadmin:

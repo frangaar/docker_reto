@@ -14,7 +14,6 @@ RUN useradd -m composeuser
 
 USER composeuser
 
-WORKDIR root/docker_reto/src/
 
 RUN composer install --no-plugins --no-scripts
 
