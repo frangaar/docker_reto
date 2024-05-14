@@ -9,7 +9,14 @@ RUN cd /tmp \
 RUN docker-php-ext-install pdo pdo_mysql
 
 RUN apt-get update
-RUN composer install
+
+RUN useradd -m composeuser
+
+USER composeuser
+
+WORKDIR ./src
+
+RUN composer install --no-plugins --no-scripts
 
 # Install useful tools
 RUN apt-get -y install apt-utils nano wget dialog vim
