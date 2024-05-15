@@ -30,14 +30,14 @@ services:
     ports:
       - "7500:80"
 
-  composer:
-    image: composer:2.6.6
-    volumes:
-      - ./src:/app
-    command:
-      - bash
-      - -c
-      - "composer update && composer install"
+  # composer:
+  #   image: composer:2.6.6
+  #   volumes:
+  #     - ./src:/app
+  #   command:
+  #     - bash
+  #     - -c
+  #     - "composer update && composer install"
     
   #Database Service
   # db:
