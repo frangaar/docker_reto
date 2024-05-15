@@ -29,6 +29,15 @@ services:
       dockerfile: Dockerfile
     ports:
       - "7500:80"
+
+  composer:
+    image: composer:2.6.6
+    volumes:
+      - ./src:/app
+    command:
+      - bash
+      - -c
+      - "composer update && composer install"
     
   #Database Service
   # db:
@@ -60,10 +69,10 @@ services:
       context: ./php
       dockerfile: Dockerfile
     volumes:
-      - ./src:/var/www/html
+      - ./src:/var/www
     ports:
       - "9000:9000"
-    working_dir: /var/www/html
+    working_dir: /var/www
 
   #phpMyAdmin Service
   # phpmyadmin:
