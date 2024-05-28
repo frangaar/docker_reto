@@ -1,5 +1,13 @@
-# Usa la imagen base de NGINX
-FROM nginx
+FROM node:16-alpine3.12
 
-# Copia los archivos de la página HTML estática al directorio de NGINX en el contenedor
-COPY . /usr/share/nginx/html
+RUN mkdir -p /app
+
+WORKDIR /app
+
+COPY ./package*.json .
+
+RUN npm install
+
+EXPOSE 7500
+
+CMD [ "npm", "run", "serve", "--", "--port", "7500" ]

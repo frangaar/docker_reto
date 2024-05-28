@@ -15,21 +15,19 @@ services:
     depends_on:
       - app
       - db
+      - vue
 
   vue:
+    container_name: landing
     build: 
-      context: ./vue
-      dockerfile: Dockerfile
-    ports:
-      - "8081:8080"
-
-  landing:
-    build:
       context: ./landing
       dockerfile: Dockerfile
     ports:
-      - "7500:80"
+      - "7500:7500"
+    volumes:
+      - ./landing:/app
 
+  
   # composer:
   #   image: composer:2.6.6
   #   volumes:
